@@ -1,0 +1,7 @@
+// Configuration File
+
+contract FootballGame {
+    code: "pragma solidity ^0.5.0; contract FootballGame { // Variables address public owner; uint256 public gameStartTime; uint256 public gameEndTime; uint256 public team1Score; uint256 public team2Score; // Constructor constructor() public { owner = msg.sender; gameStartTime = now; } // Functions function setGameEndTime(uint256 _gameEndTime) public { require(msg.sender == owner); require(_gameEndTime > gameStartTime); gameEndTime = _gameEndTime; } function setTeam1Score(uint256 _team1Score) public { require(msg.sender == owner); require(_team1Score >= 0 && _team1Score <= 10); team1Score = _team1Score; } function setTeam2Score(uint256 _team2Score) public { require(msg.sender == owner); require(_team2Score >= 0 && _team2Score <= 10); team2Score = _team2Score; } function getGameResult() public view returns (uint256, uint256) { return (team1Score, team2Score); } }",
+    gasLimit: 100000,
+    gasPrice: 0.0000001
+}
